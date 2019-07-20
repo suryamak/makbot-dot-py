@@ -1,0 +1,28 @@
+Feraligatr @ Expert Belt
+Ability: Sheer Force
+EVs: 252 Atk / 4 SpD / 252 Spe
+Adamant Nature
+- Dragon Dance
+- Waterfall
+- Earthquake
+- Ice Punch
+
+Charizard-Mega-Y @ Charizardite Y
+Ability: Blaze  
+EVs: 252 SpA / 4 SpD / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Fire Blast
+- Solar Beam
+- Dragon Pulse
+- Will-O-Wisp
+
+Serperior @ Leftovers
+Ability: Contrary
+EVs: 252 HP / 4 SpA / 252 Spe
+Timid Nature
+IVs: 0 Atk
+- Substitute
+- Toxic
+- Leech Seed
+- Leaf Storm
