@@ -40,19 +40,19 @@ class ChallengeClient(showdown.Client):
             await self.opening_words(room_obj)
 
     async def on_receive(self, room_id, inp_type, params):
-        if inp_type in ['request']:
+        if inp_type == 'request':
             self.set_mega(room_id, 'canMegaEvo' in params[0])
             self.set_dynamax(room_id, 'canDynamax' in params[0])
             if 'forceSwitch' in params[0]:
                 self.set_switch(room_id, True)
                 await self.rooms[room_id].switch(random.choice([1, 2, 3, 4, 5, 6]))
-        elif inp_type in ['turn']:
+        elif inp_type == 'turn':
             await asyncio.sleep(1)
             self.set_switch(room_id, False)
             mega = self.get_mega(room_id)
             dynamax = self.get_dynamax(room_id)
             await self.rooms[room_id].move(random.choice([1, 2, 3, 4]), mega, dynamax)
-        elif inp_type in ['win']:
+        elif inp_type == 'win':
             await self.closing_words(room_id, params[0])
         elif inp_type == 'error':
             await asyncio.sleep(1)
