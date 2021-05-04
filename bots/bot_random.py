@@ -40,9 +40,7 @@ class ChallengeClient(showdown.Client):
             await self.opening_words(room_obj)
 
     async def on_receive(self, room_id, inp_type, params):
-        if inp_type in ['player']:
-            await self.add_player(room_id, params[0], params[1])
-        elif inp_type in ['request']:
+        if inp_type in ['request']:
             self.set_mega(room_id, 'canMegaEvo' in params[0])
             self.set_dynamax(room_id, 'canDynamax' in params[0])
             if 'forceSwitch' in params[0]:
