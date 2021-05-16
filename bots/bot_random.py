@@ -114,11 +114,8 @@ class ChallengeClient(showdown.Client):
         await self.rooms[room_id].leave()
 
 logging.basicConfig(level=logging.INFO)
-with open('./login/login.txt', 'rt') as f,\
-     open('./teams/makbot_1v1_v1.txt', 'rt') as team:
-    team1v1 = team.read()
+with open('./login/login.txt', 'rt') as f:
     username, password = f.read().strip().splitlines()
 
 client = ChallengeClient(name=username, password=password)
 client.start()
-client.upload_team(None)
