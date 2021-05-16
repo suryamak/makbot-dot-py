@@ -7,17 +7,7 @@ import showdown
 import logging
 import asyncio
 
-
-class Room():
-    def __init__(self, room_id='', player_id='', mega=False, dynamax=False, switch=False):
-        self.id = room_id
-        self.primary_player = player_id
-        self.mega = mega
-        self.dynamax = dynamax
-        self.switch = switch
-    def print(self):
-        output = 'ID: ' + self.id + '\nPrimary Player: ' + self.primary_player + '\nMega Evolution Possible: ' + str(self.mega) + '\nDynamax Possible: ' + str(self.dynamax) + '\n'
-        return output
+from . import Room
 
 class ChallengeClient(showdown.Client):
 

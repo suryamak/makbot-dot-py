@@ -8,44 +8,7 @@ import logging
 import asyncio
 import re
 
-
-class Room():
-    def __init__(self, room_id='', player_id='', mega=False):
-        self.id = room_id
-        self.primary_player = player_id
-        self.mega = mega
-    def print(self):
-        output = 'ID: ' + self.id + '\nPrimary Player: ' + self.primary_player + '\nMega Evolution Possible: ' + str(self.mega) + '\n'
-        return output
-
-class Player():
-    def __init__(self, room='', id='', name=''):
-        self.room = room
-        self.id = id
-        self.name = name
-    def print(self):
-        output = 'Room: ' + self.room + '\nID: ' + self.id + '\nName: ' + self.name + '\n'
-        return output
-
-class Pokemon():
-    def __init__(self, room='', player='', name='', species='', types=[], gender='', moves=[], item=''):
-        self.room = room
-        self.player = player
-        self.name = name
-        self.species = species
-        self.types = types
-        self.gender = gender
-        self.moves = moves
-        self.item = item
-    def print(self):
-        t = ''
-        m = ''
-        if len(self.types) > 0:
-            t = ', '.join(self.types)
-        if len(self.moves) > 0:
-            m = ', '.join(self.moves)
-        output = 'Room: ' + self.room + '\nPlayer: ' + self.player + '\nName: ' + self.name + '\nSpecies: ' + self.species + '\nTypes: ' + t + '\nGender: ' + self.gender + '\nMoves: ' + m + '\nItem: ' + self.item + '\n'
-        return output
+from . import Room, Player, Pokemon
 
 class ChallengeClient(showdown.Client):
 
@@ -179,10 +142,10 @@ client.start()
 
 print('BATTLE ROOMS')
 for room in client.battle_rooms:
-    print(room.print())
+    print(room)
 print('PLAYERS')
 for player in client.players:
-    print(player.print())
+    print(player)
 print('POKEMON')
 for poke in client.pokemon:
-    print(poke.print())
+    print(poke)
