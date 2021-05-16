@@ -98,10 +98,13 @@ class ChallengeClient(showdown.Client):
             raw_species = params[1]
             self.set_nickname(raw_player_id, nickname, raw_species)
         elif inp_type in ['move']:
-            raw_player_id, user = params[0].split(': ')
+            raw_player_id_user, user = params[0].split(': ')
             move = params[1]
-            # raw_target = params[2]
-            self.set_move(raw_player_id, user, move)
+            self.set_move(raw_player_id_user, user, move)
+        elif inp_type == 'error':
+            await asyncio.sleep(1)
+            mega = self.get_mega(room_id)
+            await self.rooms[room_id].move(random.choice([1, 2, 3, 4]), True if mega else False)
     
     def set_mega(self, room_id, value):
         for i in range(len(self.battle_rooms)):
@@ -143,7 +146,7 @@ class ChallengeClient(showdown.Client):
         await asyncio.sleep(1)
 
     async def closing_words(self, room_id, raw_data):
-        if 'makbotdotpy' in raw_data:
+        if self.name in raw_data:
             await self.rooms[room_id].say("lol gg")
         else:
             await self.rooms[room_id].say("ggwp")
